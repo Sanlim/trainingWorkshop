@@ -123,6 +123,7 @@ export default {
     test2: [],
     editedIndex: -1,
     editedItem: {
+      _id: "",
       productId: "",
       productName: "",
       productDetail: "",
@@ -131,6 +132,7 @@ export default {
       linkPhoto: "",
     },
     defaultItem: {
+      _id: "",
       productId: "",
       productName: "",
       productDetail: "",
@@ -231,7 +233,7 @@ export default {
     },
     async editProduct() {
       try {
-        await this.axios.put("http://localhost:3000/stock/", this.editedItem);
+        await this.axios.put("http://localhost:3000/stock/" + this.editedItem._id , this.editedItem);
         //console.log(data);
         this.products = this.getProduct();
       } catch (error) {
@@ -241,7 +243,7 @@ export default {
     async delProduct() {
       try {
         // console.log(item);
-        await this.axios.delete("http://localhost:3000/stock/" + this.editedItem)
+        await this.axios.delete("http://localhost:3000/stock/" + this.editedItem._id)
         this.getProduct()
       } catch (error) {
         console.log(error.message);

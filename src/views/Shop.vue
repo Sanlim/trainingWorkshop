@@ -55,6 +55,7 @@
               large
               v-bind="attrs"
               v-on="on"
+              to="/bill"
             >
               <h2>สั่งซื้อ</h2>
             </v-btn>
@@ -143,15 +144,6 @@ export default {
         console.log(error.message);
       }
     },
-    // async getBill() {
-    //   try {
-    //     var { data } = await this.axios.get("http://localhost:3000/bill/");
-    //     this.bill = data
-    //     console.log(this.bill);
-    //   } catch (error) {
-    //     console.log(error.message);
-    //   }
-    // },
     async createBill() {
       try {
         var { data } = await this.axios.post("http://localhost:3000/bill/", this.editBill);
